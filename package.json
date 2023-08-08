@@ -1,5 +1,5 @@
 {
-  "name": "serverss-vpc-connect-test",
+  "name": "serverless-vpc-connect-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
