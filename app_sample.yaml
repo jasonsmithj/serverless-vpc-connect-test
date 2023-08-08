@@ -1,0 +1,26 @@
+service: outbound-ip-check
+runtime: nodejs10
+env: standard
+vpc_access_connector:
+  name: "projects/<Projecct Name>/locations/<Region>/connectors/<Serverless VPC Access Controller Name>"
+
+instance_class: F2
+
+handlers:
+  - url: /_nuxt
+    static_dir: .nuxt/dist/client
+    secure: always
+
+  - url: /(.*\.(gif|png|jpg|ico|txt))$
+    static_files: static/\1
+    upload: static/.*\.(gif|png|jpg|ico|txt)$
+    secure: always
+
+  - url: /.*
+    script: auto
+    secure: always
+
+env_variables:
+  HOST: '0.0.0.0'
+  PORT: '8080'
+  NODE_ENV: 'production'
